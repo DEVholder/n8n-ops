@@ -30,6 +30,7 @@ Use the official Public API for workflow inspection and edits.
 - When fixing connections, change only the affected edge set.
 - Preserve unrelated nodes and settings.
 - Check `settings.availableInMCP` separately from activation. Both matter for MCP use.
+- **Tag Updates**: `PUT /api/v1/workflows/{id}/tags` replaces the entire tag set. To append a tag, fetch existing tags first, then include them in the `PUT` payload.
 
 ## Useful query parameters
 

@@ -5,6 +5,7 @@ Use this order when a workflow is failing.
 1. Identify the workflow and latest failed execution.
 2. Read execution data with `includeData=true`.
 3. Find the first failing node, not just the final failed status.
+   - *Tip:* Use `jq` to filter large execution results (e.g., `jq '.data.resultData.runData'`).
 4. Check the node's credential binding in the workflow JSON.
 5. Check expressions in the failing node parameters.
 6. Check whether upstream nodes actually returned the fields the node expects.

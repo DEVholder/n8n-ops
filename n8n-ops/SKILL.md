@@ -65,10 +65,12 @@ curl -H "X-N8N-API-KEY: $N8N_API_KEY"
 - `scripts/list_failed_executions.sh`
 - `scripts/get_execution.sh`
 - `scripts/retry_execution.sh`
+- `scripts/list_credentials.sh`
+- `scripts/get_credential.sh`
 - `scripts/get_credential_schema.sh`
 
 ## Notes
 
-- The official Public API does not provide a stable `GET /credentials` listing surface in the current public contract.
+- Credential listing and metadata reads are supported via the Public API. Sensitive values remain protected.
 - Credential secrets should not be printed back to the user unless strictly necessary.
 - For destructive or high-impact actions on a live instance, summarize the exact change before performing it.

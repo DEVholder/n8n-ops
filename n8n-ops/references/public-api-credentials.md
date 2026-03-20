@@ -4,20 +4,22 @@ Treat credentials conservatively.
 
 ## Supported stable operations
 
+- List credentials: `GET /api/v1/credentials`
+- Get a specific credential: `GET /api/v1/credentials/{id}`
 - Create credential: `POST /api/v1/credentials`
 - Update credential: `PATCH /api/v1/credentials/{id}`
 - Delete credential: `DELETE /api/v1/credentials/{id}`
 - Get credential schema by type: `GET /api/v1/credentials/schema/{credentialTypeName}`
 
-## Important limitation
+## Important considerations
 
-The current Public API contract does not expose a stable credential listing or single-credential read endpoint. Do not assume `GET /credentials` is part of the supported public surface.
+While listing and reading credentials is now supported, the Public API returns metadata (name, type, etc.) but **never** returns sensitive secrets or the raw `data` values.
 
-That means this skill should focus on:
+This skill focuses on:
 
 - schema-driven credential creation
-- targeted credential updates when the ID is already known
-- workflow node reference auditing by reading workflow JSON
+- targeted credential updates when the ID is known
+- workflow node reference auditing by reading workflow JSON and credential metadata
 
 ## Safe workflow for credential work
 
