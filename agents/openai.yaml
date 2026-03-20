@@ -1,0 +1,7 @@
+interface:
+  display_name: "n8n Ops"
+  short_description: "Operate and debug self-hosted n8n safely"
+  default_prompt: "Use $n8n-ops to inspect, edit, and debug a self-hosted n8n instance through the Public API and MCP."
+
+policy:
+  allow_implicit_invocation: true
