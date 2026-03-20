@@ -23,13 +23,13 @@ n8n-ops/
 
 - 공식 Public API를 사용한 셀프 호스팅 `n8n` 워크플로 조회 및 수정
 - 실패한 실행 이력 분석 및 안전한 재시도
-- 공식 credential schema 기반의 크리덴셜 설정 가이드
+- 공식 credential schema 및 메타데이터 조회를 통한 크리덴셜 관리 가이드
 - `n8n` MCP 노출 및 실행 사용 시점 안내
 - 불안정한 `/rest/*` 엔드포인트에 대한 명시적 opt-in fallback 가이드
 
 ## 설계 원칙
 
-- 워크플로와 실행 관련 작업의 source of truth는 `Public API`
+- 워크플로, 실행, 크리덴셜 관련 작업의 source of truth는 `Public API`
 - `MCP`는 노출된 워크플로 탐색 및 실행을 위한 보조 수단
 - `/rest/*`는 불안정한 내부 인터페이스로 간주하며 명시적 허용 시에만 사용
 - secret 값은 꼭 필요한 경우가 아니면 다시 출력하지 않음
@@ -57,6 +57,8 @@ export N8N_API_KEY="your-api-key"
 ./n8n-ops/scripts/list_workflows.sh '?limit=10'
 ./n8n-ops/scripts/get_workflow.sh WORKFLOW_ID
 ./n8n-ops/scripts/list_failed_executions.sh '?status=error&limit=10'
+./n8n-ops/scripts/list_credentials.sh '?limit=5'
+./n8n-ops/scripts/get_credential.sh CREDENTIAL_ID
 ./n8n-ops/scripts/get_credential_schema.sh googleDriveOAuth2Api
 ```
 

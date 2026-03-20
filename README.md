@@ -23,13 +23,13 @@ n8n-ops/
 
 - Inspect and update self-hosted `n8n` workflows through the official Public API
 - Debug failed executions and retry them safely
-- Guide credential work through documented credential schemas
+- Inspect and manage credentials through documented schemas and official metadata reads
 - Help expose workflows through `n8n` MCP and explain when MCP should be used
 - Provide an explicitly gated fallback path for unstable `/rest/*` endpoints
 
 ## Design principles
 
-- `Public API` is the source of truth for workflow and execution operations
+- `Public API` is the source of truth for workflow, execution, and credential operations
 - `MCP` is a companion surface for exposed workflow discovery and execution
 - `/rest/*` is treated as unstable and opt-in only
 - Secrets should not be echoed back unless strictly necessary
@@ -57,6 +57,8 @@ Example script usage:
 ./n8n-ops/scripts/list_workflows.sh '?limit=10'
 ./n8n-ops/scripts/get_workflow.sh WORKFLOW_ID
 ./n8n-ops/scripts/list_failed_executions.sh '?status=error&limit=10'
+./n8n-ops/scripts/list_credentials.sh '?limit=5'
+./n8n-ops/scripts/get_credential.sh CREDENTIAL_ID
 ./n8n-ops/scripts/get_credential_schema.sh googleDriveOAuth2Api
 ```
 
